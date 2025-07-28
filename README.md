@@ -64,7 +64,7 @@ You can access the APK File for android users via: [Google Drive - Expense Track
 ![WhatsApp Image 2025-07-29 at 00 12 21_82a8f30d](https://github.com/user-attachments/assets/4b3fb756-0b53-473e-bbe6-c098458746b8)
 
 ### Dark Theme
-![Uploading WhatsApp Image 2025-07-29 at 00.12.21_151f139d.jpg…]()
+![WhatsApp Image 2025-07-29 at 00 12 21_151f139d](https://github.com/user-attachments/assets/63a53f60-fb42-4b3c-8e19-ce480390b5e8)
 
 
 
