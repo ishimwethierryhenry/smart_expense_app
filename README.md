@@ -418,7 +418,7 @@ copies or substantial portions of the Software.
 
 **Your Name**
 - GitHub: [My GitHub Account](https://github.com/ishimwethierryhenry)
-- LinkedIn: [My LinkedIn Profile]((https://www.linkedin.com/in/ishimwe-thierry-henry-b9a914168))
+- LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/ishimwe-thierry-henry-b9a914168)
 - Email: ishimweth@gmail.com
 
 ---
