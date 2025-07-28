@@ -65,13 +65,16 @@ class _TotalChartState extends State<TotalChart> with TickerProviderStateMixin {
                   children: [
                     // Left side - Details
                     Expanded(
-                      flex: isTablet ? 50 : 55,
+                      flex: isTablet
+                          ? 60
+                          : 65, // Increased flex to give more space for text
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // Total Amount with Icon
                           Container(
+                            width: double.infinity,
                             padding: EdgeInsets.all(isTablet ? 20 : 16),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -123,7 +126,7 @@ class _TotalChartState extends State<TotalChart> with TickerProviderStateMixin {
                                     style: theme.textTheme.headlineMedium
                                         ?.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: isTablet ? 28 : 24,
+                                      fontSize: isTablet ? 26 : 22,
                                       color: theme.brightness == Brightness.dark
                                           ? Colors.white
                                           : theme.primaryColor,
@@ -134,97 +137,108 @@ class _TotalChartState extends State<TotalChart> with TickerProviderStateMixin {
                             ),
                           ),
 
-                          SizedBox(height: isTablet ? 20 : 16),
+                          SizedBox(height: isTablet ? 16 : 12),
 
-                          // Category breakdown
-                          ...list.map((e) {
-                            final index = list.indexOf(e);
-                            final color =
-                                categoryColors[index % categoryColors.length];
-                            final percentage = total == 0
-                                ? 0.0
-                                : (e.totalAmount / total) * 100;
+                          // Category breakdown - Make it scrollable if needed
+                          Expanded(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: list.map((e) {
+                                  final index = list.indexOf(e);
+                                  final color = categoryColors[
+                                      index % categoryColors.length];
+                                  final percentage = total == 0
+                                      ? 0.0
+                                      : (e.totalAmount / total) * 100;
 
-                            return Container(
-                              margin:
-                                  EdgeInsets.only(bottom: isTablet ? 10 : 8),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: isTablet ? 16 : 12,
-                                vertical: isTablet ? 12 : 8,
-                              ),
-                              decoration: BoxDecoration(
-                                color: color.withOpacity(0.08),
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: color.withOpacity(0.2),
-                                  width: 0.5,
-                                ),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: isTablet ? 10 : 8,
-                                    height: isTablet ? 10 : 8,
-                                    decoration: BoxDecoration(
-                                      color: color,
-                                      shape: BoxShape.circle,
-                                    ),
-                                  ),
-                                  SizedBox(width: isTablet ? 12 : 8),
-                                  Expanded(
-                                    child: Text(
-                                      e.title,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: isTablet ? 14 : 12,
-                                        color: theme.brightness ==
-                                                Brightness.dark
-                                            ? Colors.white.withOpacity(0.9)
-                                            : theme.textTheme.bodySmall?.color,
-                                      ),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  Container(
+                                  return Container(
+                                    margin: EdgeInsets.only(
+                                        bottom: isTablet ? 8 : 6),
                                     padding: EdgeInsets.symmetric(
-                                      horizontal: isTablet ? 8 : 6,
-                                      vertical: isTablet ? 4 : 2,
+                                      horizontal: isTablet ? 12 : 10,
+                                      vertical: isTablet ? 10 : 8,
                                     ),
                                     decoration: BoxDecoration(
-                                      color: color.withOpacity(0.2),
-                                      borderRadius: BorderRadius.circular(4),
-                                    ),
-                                    child: Text(
-                                      '${(percentage * _chartAnimation.value).toStringAsFixed(1)}%',
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        color: color,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: isTablet ? 12 : 10,
+                                      color: color.withOpacity(0.08),
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(
+                                        color: color.withOpacity(0.2),
+                                        width: 0.5,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: isTablet ? 8 : 6,
+                                          height: isTablet ? 8 : 6,
+                                          decoration: BoxDecoration(
+                                            color: color,
+                                            shape: BoxShape.circle,
+                                          ),
+                                        ),
+                                        SizedBox(width: isTablet ? 10 : 8),
+                                        Expanded(
+                                          child: Text(
+                                            e.title,
+                                            style: theme.textTheme.bodySmall
+                                                ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: isTablet ? 13 : 11,
+                                              color: theme.brightness ==
+                                                      Brightness.dark
+                                                  ? Colors.white
+                                                      .withOpacity(0.9)
+                                                  : theme.textTheme.bodySmall
+                                                      ?.color,
+                                            ),
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal: isTablet ? 6 : 4,
+                                            vertical: isTablet ? 3 : 2,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: color.withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(4),
+                                          ),
+                                          child: Text(
+                                            '${(percentage * _chartAnimation.value).toStringAsFixed(1)}%',
+                                            style: theme.textTheme.bodySmall
+                                                ?.copyWith(
+                                              color: color,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: isTablet ? 10 : 9,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }).toList(),
                               ),
-                            );
-                          }).toList(),
+                            ),
+                          ),
                         ],
                       ),
                     ),
 
-                    SizedBox(width: isTablet ? 24 : 16),
+                    SizedBox(width: isTablet ? 16 : 12),
 
                     // Right side - Pie Chart
                     Expanded(
-                      flex: isTablet ? 50 : 45,
+                      flex: isTablet
+                          ? 40
+                          : 35, // Reduced flex to give more space to left side
                       child: Container(
-                        height: isTablet ? 220 : 200,
+                        height: isTablet ? 200 : 180,
                         child: total != 0
                             ? PieChart(
                                 PieChartData(
-                                  centerSpaceRadius: isTablet ? 50 : 40,
-                                  sectionsSpace: 3,
+                                  centerSpaceRadius: isTablet ? 45 : 35,
+                                  sectionsSpace: 2,
                                   sections: list.map((e) {
                                     final index = list.indexOf(e);
                                     final color = categoryColors[
@@ -234,7 +248,7 @@ class _TotalChartState extends State<TotalChart> with TickerProviderStateMixin {
                                       value:
                                           e.totalAmount * _chartAnimation.value,
                                       color: color,
-                                      radius: isTablet ? 60 : 50,
+                                      radius: isTablet ? 50 : 45,
                                     );
                                   }).toList(),
                                 ),
@@ -253,11 +267,11 @@ class _TotalChartState extends State<TotalChart> with TickerProviderStateMixin {
                                     children: [
                                       Icon(
                                         Icons.pie_chart_outline,
-                                        size: isTablet ? 40 : 32,
+                                        size: isTablet ? 36 : 28,
                                         color: theme.textTheme.bodyMedium?.color
                                             ?.withOpacity(0.5),
                                       ),
-                                      SizedBox(height: isTablet ? 12 : 8),
+                                      SizedBox(height: isTablet ? 8 : 6),
                                       Text(
                                         'No Data',
                                         style:
@@ -265,7 +279,7 @@ class _TotalChartState extends State<TotalChart> with TickerProviderStateMixin {
                                           color: theme
                                               .textTheme.bodyMedium?.color
                                               ?.withOpacity(0.5),
-                                          fontSize: isTablet ? 14 : 12,
+                                          fontSize: isTablet ? 12 : 10,
                                         ),
                                       ),
                                     ],
