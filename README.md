@@ -56,28 +56,20 @@ This application was developed as part of the **Final Flutter Project Assignment
 ## 📸 Screenshots
 
 ### Light Theme
-<table>
-  <tr>
-    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/639fbb98-165e-4263-ae54-38d9bea5d94e)
+<img width="600" height="960" alt="image" src="https://github.com/user-attachments/assets/3659333f-ab6d-4427-8650-38377d027dc9" />
+<img width="600" height="960" alt="image" src="https://github.com/user-attachments/assets/96b84f91-f9dc-442b-82f6-42b45513a9c1" />
+<img width="600" height="960" alt="image" src="https://github.com/user-attachments/assets/60f3815f-9bf7-45af-ac2a-c2dd1b18e6c7" />
+<img width="600" height="960" alt="image" src="https://github.com/user-attachments/assets/a621ca74-2a22-41e8-9618-0e0323014024" />
 
-  </tr>
-  <tr>
-    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/c6fbcebf-3645-4c71-89f7-7d40eecb4599)
 
-  </tr>
-</table>
+
+
 
 ### Dark Theme
-<table>
-  <tr>
-    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/010be122-dbdb-49c7-b85f-e639c0958d9e)
+![WhatsApp Image 2025-07-28 at 14 52 16_8d198aa2](https://github.com/user-attachments/assets/3b89539b-5fa0-4ae5-a618-0754c5cf5106)
+![WhatsApp Image 2025-07-28 at 14 52 15_50e7fec7](https://github.com/user-attachments/assets/a47145f1-5e34-40f3-bf90-b0a0cb732b23)
 
-  </tr>
-  <tr>
-    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/83a97b48-6938-40e7-b3e4-7bf8cab0924f)
 
-  </tr>
-</table>
 
 ---
 
@@ -426,7 +418,7 @@ copies or substantial portions of the Software.
 
 **Your Name**
 - GitHub: [My GitHub Account](https://github.com/ishimwethierryhenry)
-- LinkedIn: [My LinkedIn Profile]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/ishimwe-thierry-henry-b9a914168))
+- LinkedIn: [My LinkedIn Profile]((https://www.linkedin.com/in/ishimwe-thierry-henry-b9a914168))
 - Email: ishimweth@gmail.com
 
 ---
@@ -445,7 +437,7 @@ copies or substantial portions of the Software.
 
 If you have any questions or need help with the project:
 
-1. **Check the [Issues](https://github.com/yourusername/smart-expense-tracker/issues)** page
+1. **Check the [Issues](https://github.com/ishimwethierryhenry/smart_expense_app/issues)** page
 2. **Create a new issue** if your problem isn't already reported
 3. **Contact the maintainer** for urgent issues
 
