@@ -399,7 +399,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ```
 MIT License
 
-Copyright (c) 2024 Smart Expense Tracker
+Copyright (c) 2025 Smart Expense Tracker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -416,7 +416,7 @@ copies or substantial portions of the Software.
 
 ## 👨‍💻 Author
 
-**Your Name**
+**ISHIMWE Thierry Henry**
 - GitHub: [My GitHub Account](https://github.com/ishimwethierryhenry)
 - LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/ishimwe-thierry-henry-b9a914168)
 - Email: ishimweth@gmail.com
@@ -425,11 +425,12 @@ copies or substantial portions of the Software.
 
 ## 🙏 Acknowledgments
 
-- Flutter team for the amazing framework
+- AUCA Innovation Center for project guidance
+- Flutter team mates for the amazing team work
 - Material Design team for design guidelines
 - SQLite for reliable database engine
 - FL Chart for beautiful chart components
-- AUCA Innovation Center for project guidance
+
 
 ---
 
