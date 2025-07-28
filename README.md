@@ -15,6 +15,10 @@
 ### 🎯 Project Context
 This application was developed as part of the **Final Flutter Project Assignment** for Mobile Development course, implementing a complete expense tracking solution with offline-first architecture and modern design principles.
 
+### 📱 APK FILE
+You can access the APK File for android users on:_____________________________ 
+
+
 ---
 
 ## ✨ Key Features
