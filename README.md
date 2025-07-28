@@ -270,6 +270,8 @@ List<Expense> filteredExpenses = provider.expenses; // Auto-filtered
 
 ## 📊 Meeting Project Requirements
 
+Find the requirements via: https://docs.google.com/document/d/10mc2IHixwQ9qB8-wmR_qEQvPk50GnY8IJjjdAc0PKjw/edit?usp=sharing
+
 ### **✅ Functional Features (25%)**
 - [x] Expense logging with categorization
 - [x] Budget tracking and calculations  
