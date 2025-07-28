@@ -16,7 +16,7 @@
 This application was developed as part of the **Final Flutter Project Assignment** for Mobile Development course, implementing a complete expense tracking solution with offline-first architecture and modern design principles.
 
 ### 📱 APK FILE
-You can access the APK File for android users via:[Google Drive - Expense Tracker.apk
+You can access the APK File for android users via: [Google Drive - Expense Tracker.apk
 ](https://drive.google.com/file/d/1JGVaBIuNmKrmP8VBQnAIXxYDSiNjx9-o/view?usp=sharing)
 
 ---
