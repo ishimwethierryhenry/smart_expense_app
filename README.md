@@ -58,28 +58,24 @@ This application was developed as part of the **Final Flutter Project Assignment
 ### Light Theme
 <table>
   <tr>
-    <td align="center"><strong>Dashboard</strong></td>
-    <td align="center"><strong>Add Expense</strong></td>
-    <td align="center"><strong>Category View</strong></td>
+    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/639fbb98-165e-4263-ae54-38d9bea5d94e)
+
   </tr>
   <tr>
-    <td><img src="assets/screenshots/dashboard_light.png" width="250" alt="Dashboard Light"/></td>
-    <td><img src="assets/screenshots/add_expense_light.png" width="250" alt="Add Expense Light"/></td>
-    <td><img src="assets/screenshots/category_light.png" width="250" alt="Category Light"/></td>
+    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/c6fbcebf-3645-4c71-89f7-7d40eecb4599)
+
   </tr>
 </table>
 
 ### Dark Theme
 <table>
   <tr>
-    <td align="center"><strong>Dashboard</strong></td>
-    <td align="center"><strong>All Expenses</strong></td>
-    <td align="center"><strong>Search & Filter</strong></td>
+    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/010be122-dbdb-49c7-b85f-e639c0958d9e)
+
   </tr>
   <tr>
-    <td><img src="assets/screenshots/dashboard_dark.png" width="250" alt="Dashboard Dark"/></td>
-    <td><img src="assets/screenshots/all_expenses_dark.png" width="250" alt="All Expenses Dark"/></td>
-    <td><img src="assets/screenshots/search_dark.png" width="250" alt="Search Dark"/></td>
+    ![WhatsApp Image 2025-07-28 at 13 53 53_921a340a](https://github.com/user-attachments/assets/83a97b48-6938-40e7-b3e4-7bf8cab0924f)
+
   </tr>
 </table>
 
@@ -429,9 +425,9 @@ copies or substantial portions of the Software.
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Email: your.email@example.com
+- GitHub: [My GitHub Account](https://github.com/ishimwethierryhenry)
+- LinkedIn: [My LinkedIn Profile]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/ishimwe-thierry-henry-b9a914168))
+- Email: ishimweth@gmail.com
 
 ---
 
