@@ -12,8 +12,11 @@ class CategoryFetcher extends StatefulWidget {
   State<CategoryFetcher> createState() => _CategoryFetcherState();
 }
 
-class _CategoryFetcherState extends State<CategoryFetcher> {
+class _CategoryFetcherState extends State<CategoryFetcher>
+    with TickerProviderStateMixin {
   late Future _categoryList;
+  late AnimationController _slideAnimationController;
+  late Animation<Offset> _slideAnimation;
 
   Future _getCategoryList() async {
     final provider = Provider.of<DatabaseProvider>(context, listen: false);
@@ -23,52 +26,172 @@ class _CategoryFetcherState extends State<CategoryFetcher> {
   @override
   void initState() {
     super.initState();
-    // fetch the list and set it to _categoryList
     _categoryList = _getCategoryList();
+    _slideAnimationController = AnimationController(
+      duration: const Duration(milliseconds: 800),
+      vsync: this,
+    );
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0, 0.3),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+      parent: _slideAnimationController,
+      curve: Curves.easeOutCubic,
+    ));
+  }
+
+  @override
+  void dispose() {
+    _slideAnimationController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return FutureBuilder(
       future: _categoryList,
       builder: (_, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
-          // if connection is done then check for errors or return the result
           if (snapshot.hasError) {
-            return Center(child: Text(snapshot.error.toString()));
-          } else {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            return Center(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 250.0,
-                    child: TotalChart(),
+                  Icon(
+                    Icons.error_outline,
+                    size: 64,
+                    color: Colors.red.withOpacity(0.6),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'Expenses',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(AllExpenses.name);
-                        },
-                        child: const Text('View All'),
-                      ),
-                    ],
+                  const SizedBox(height: 16),
+                  Text(
+                    'Something went wrong',
+                    style: theme.textTheme.headlineMedium,
                   ),
-                  const Expanded(child: CategoryList()),
+                  const SizedBox(height: 8),
+                  Text(
+                    snapshot.error.toString(),
+                    style: theme.textTheme.bodyMedium,
+                    textAlign: TextAlign.center,
+                  ),
                 ],
+              ),
+            );
+          } else {
+            _slideAnimationController.forward();
+            return SlideTransition(
+              position: _slideAnimation,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(20.0, 120.0, 20.0, 20.0),
+                child: Column(
+                  children: [
+                    // Enhanced Chart Section
+                    Container(
+                      height: 280,
+                      margin: const EdgeInsets.only(bottom: 24),
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: theme.cardColor,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.08),
+                            blurRadius: 20,
+                            offset: const Offset(0, 8),
+                          ),
+                        ],
+                      ),
+                      child: const TotalChart(),
+                    ),
+
+                    // Header Section
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Categories',
+                                style: theme.textTheme.headlineMedium?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                'Track your spending habits',
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: theme.textTheme.bodyMedium?.color
+                                      ?.withOpacity(0.7),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: theme.primaryColor.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: TextButton.icon(
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(AllExpenses.name);
+                              },
+                              icon: Icon(
+                                Icons.list_alt,
+                                color: theme.primaryColor,
+                                size: 18,
+                              ),
+                              label: Text(
+                                'View All',
+                                style: TextStyle(
+                                  color: theme.primaryColor,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Categories List
+                    const Expanded(child: CategoryList()),
+                  ],
+                ),
               ),
             );
           }
         } else {
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: theme.primaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: CircularProgressIndicator(
+                    valueColor:
+                        AlwaysStoppedAnimation<Color>(theme.primaryColor),
+                    strokeWidth: 3,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  'Loading your expenses...',
+                  style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          );
         }
       },
     );
