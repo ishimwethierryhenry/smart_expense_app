@@ -82,85 +82,88 @@ class _CategoryFetcherState extends State<CategoryFetcher>
             _slideAnimationController.forward();
             return SlideTransition(
               position: _slideAnimation,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 120.0, 20.0, 20.0),
-                child: Column(
-                  children: [
-                    // Enhanced Chart Section
-                    Container(
-                      height: 280,
-                      margin: const EdgeInsets.only(bottom: 24),
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: theme.cardColor,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.08),
-                            blurRadius: 20,
-                            offset: const Offset(0, 8),
-                          ),
-                        ],
-                      ),
-                      child: const TotalChart(),
-                    ),
-
-                    // Header Section
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Categories',
-                                style: theme.textTheme.headlineMedium?.copyWith(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                'Track your spending habits',
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.textTheme.bodyMedium?.color
-                                      ?.withOpacity(0.7),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.primaryColor.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(12),
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                  child: Column(
+                    children: [
+                      // Enhanced Chart Section
+                      Container(
+                        height: 280,
+                        margin: const EdgeInsets.only(bottom: 32),
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: theme.cardColor,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.08),
+                              blurRadius: 20,
+                              offset: const Offset(0, 8),
                             ),
-                            child: TextButton.icon(
-                              onPressed: () {
-                                Navigator.of(context)
-                                    .pushNamed(AllExpenses.name);
-                              },
-                              icon: Icon(
-                                Icons.list_alt,
-                                color: theme.primaryColor,
-                                size: 18,
+                          ],
+                        ),
+                        child: const TotalChart(),
+                      ),
+
+                      // Header Section
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Categories',
+                                  style:
+                                      theme.textTheme.headlineMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  'Track your spending habits',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    color: theme.textTheme.bodyMedium?.color
+                                        ?.withOpacity(0.7),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: theme.primaryColor.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              label: Text(
-                                'View All',
-                                style: TextStyle(
+                              child: TextButton.icon(
+                                onPressed: () {
+                                  Navigator.of(context)
+                                      .pushNamed(AllExpenses.name);
+                                },
+                                icon: Icon(
+                                  Icons.list_alt,
                                   color: theme.primaryColor,
-                                  fontWeight: FontWeight.w600,
+                                  size: 18,
+                                ),
+                                label: Text(
+                                  'View All',
+                                  style: TextStyle(
+                                    color: theme.primaryColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
 
-                    // Categories List
-                    const Expanded(child: CategoryList()),
-                  ],
+                      // Categories List
+                      const Expanded(child: CategoryList()),
+                    ],
+                  ),
                 ),
               ),
             );
